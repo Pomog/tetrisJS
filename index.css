@@ -1,0 +1,141 @@
+body {
+    overflow: hidden;
+    background-color: rgb(85, 20, 26);
+    justify-content: center;
+    margin-left: 750px;
+    margin-top: 200px;
+}
+
+#tetris {
+    width: 1000px;
+    height: 600px;
+    border: 1px solid rgb(153, 22, 22);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#canvas {
+    width: 800px;
+    height: 600px;
+    background: rgb(32, 0, 64);
+    position: relative;
+    color: #fff;
+}
+
+#canvas h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 200px;
+}
+
+#game-stats {
+    position: absolute;
+    width: 22vw;
+    margin-top: 200px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.piece {
+    border: 1px solid white;
+    position: absolute;
+}
+
+#start {
+    margin-top: 10px;
+    padding: 20px 20px;
+    font-size: 2em;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color: green;
+}
+
+#next_shape {
+    position: relative;
+    background: rgba(0, 0, 0, 0.1);
+    border: 10px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    z-index: 4;
+}
+
+#info {
+    background: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    float: right;
+    width: 120px;
+    height: 580px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@keyframes blink {
+    to {
+        outline: green solid 1px;
+    }
+}
+
+.red {
+    color: #f00000;
+}
+
+.square {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border: 1px solid white;
+}
+
+.type0 {
+    background-color: rgba(80, 227, 230, 1);
+
+}
+
+.type1 {
+    background-color: rgba(36, 95, 223, 1);
+}
+
+.type2 {
+    background-color: rgba(223, 173, 36, 1);
+}
+
+.type3 {
+    background-color: rgba(223, 217, 36, 1);
+}
+
+.type4 {
+    background-color: rgba(48, 211, 56, 1);
+}
+
+.type5 {
+    background-color: rgba(240, 80, 195, 1);
+}
+
+.type6 {
+    background-color: rgba(132, 61, 198, 1);
+}
+
+@media (max-width: 767px) {
+    body {
+        overflow: hidden;
+        background-color: rgb(85, 20, 26);
+        justify-content: center;
+        margin-left: 200px;
+        margin-top: 200px;
+    }
+}
+
+/* (function () {
+    var isStart = false;
+    var tetris = {
+      board: [],
+      boardDiv: null,
+      canvas: null,
+      pSize: 20,
+      canvasHeight: 600,
+      canvasWidth: 800, 
+      
+      changing height and width  in order to fit correctly tetris in borders, this is examle for to follow the code that is on web */
