@@ -19,7 +19,7 @@ TetrisJS is a classic Tetris game implemented entirely in JavaScript (JS), HTML,
 Contributions to TetrisJS are welcome! Whether you're interested in adding new features, optimizing performance, or fixing bugs, feel free to fork the repository and submit pull requests.
 
 ## Credits:
-- Created by []
+- Created by [Giorgi Koridze](https://01.kood.tech/git/gkoridze), [Yurii Panasiuk](https://01.kood.tech/git/ypanasiu)
 - Inspired by the classic Tetris game developed by Alexey Pajitnov in 1984.
 
 ## License:
