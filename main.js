@@ -118,6 +118,7 @@
     init: function () {
       isStart = true;
       this.canvas = document.getElementById("canvas");
+      this.score = 0;
       this.initBoard();
       this.initInfo();
       this.initLevelScores();
@@ -665,7 +666,6 @@
   btn.addEventListener("click", function () {
     btn.style.display = "none";
     if (!isStart) {
-      this.score = 0; 
       document.getElementById("canvas").innerHTML = "";
       tetris.lives = 3; // Reset lives to 3
       tetris.init();
