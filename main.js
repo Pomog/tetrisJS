@@ -82,15 +82,20 @@
     livesDisplay: null,
     lives: 3,
 
-    
     restartGame: function () {
+      if (this.lives <= 0) {
+        this.gameOver();
+        document.getElementById("start").style.display = "block";
+        return;
+      }
+      
       this.clearScreen();
 
       // Reset game state
       this.board = [];
       this.curSqs = [];
       this.curComplete = false;
-      this.score = 0;
+      // this.score = 0;
       this.level = 1;
       this.lines = 0;
       this.time = 0;
@@ -113,6 +118,7 @@
     init: function () {
       isStart = true;
       this.canvas = document.getElementById("canvas");
+      this.score = 0;
       this.initBoard();
       this.initInfo();
       this.initLevelScores();
@@ -354,16 +360,20 @@
         this.lives - this.currentLevel;
       }
     },
+
     gameOver: function () {
       this.clearTimers();
       isStart = false;
       this.canvas.innerHTML = "<h1>GAME OVER</h1>";
     },
+
     play: function () {
       var me = this;
+
       if (this.timer === null) {
         this.initTimer();
       }
+
       var gameLoop = function () {
         me.move("D");
         if (me.curComplete) {
@@ -558,11 +568,40 @@
         this.markBoardAt(x, y, 0);
       }
     },
+
     removeRow: function (y) {
       for (var x = 0; x < this.boardWidth; x++) {
         this.removeBlock(x, y);
       }
+      this.shiftRowsDown(y);
     },
+
+    shiftRowsDown: function (removedRow) {
+      for (var y = removedRow - 1; y >= 0; y--) {
+        for (var x = 0; x < this.boardWidth; x++) {
+          if (this.boardPos(x, y) === 1) {
+            var block = this.getBlockAt(x, y);
+            this.setBlock(x, y + 1, block);
+            this.removeBlock(x, y);
+          }
+        }
+      }
+    },
+
+    getBlockAt: function (x, y) {
+      // Get the block element at the given position
+      var block = null;
+      this.sqs.forEach(function (sq) {
+        if (
+          parseInt(sq.style.left) / this.pSize === x &&
+          parseInt(sq.style.top) / this.pSize === y
+        ) {
+          block = sq;
+        }
+      }, this);
+      return block;
+    },
+
     removeBlock: function (x, y) {
       var me = this;
       this.markBoardAt(x, y, 0);
@@ -622,10 +661,13 @@
       return rgx.test(navigator.userAgent);
     },
   };
+
   const btn = document.querySelector("#start");
   btn.addEventListener("click", function () {
     btn.style.display = "none";
     if (!isStart) {
+      document.getElementById("canvas").innerHTML = "";
+      tetris.lives = 3; // Reset lives to 3
       tetris.init();
     }
   });
