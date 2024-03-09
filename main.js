@@ -88,7 +88,7 @@
         document.getElementById("start").style.display = "block";
         return;
       }
-      
+
       this.clearScreen();
 
       // Reset game state
@@ -394,11 +394,14 @@
       this.isActive = 1;
     },
     togglePause: function () {
+      var pauseMessage = document.getElementById("pause-message");
       if (this.isActive === 1) {
         this.clearTimers();
         this.isActive = 0;
+        pauseMessage.style.display = "block"; // Show pause message
       } else {
         this.play();
+        pauseMessage.style.display = "none"; // Hide pause message
       }
     },
     clearTimers: function () {

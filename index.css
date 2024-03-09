@@ -7,6 +7,21 @@ body {
     background-image: url(./neon-pink-ladscape_53876-91654.jpg);
 }
 
+#pause-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(130, 55, 143, 1);
+  background-image: url(./pause.png);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 15px;
+  font-size: 10px;
+}
+
 #tetris {
     width: 100%;
     max-width: 1000px;
