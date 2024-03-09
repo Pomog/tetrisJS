@@ -7,6 +7,11 @@ body {
     background-image: url(./neon-pink-ladscape_53876-91654.jpg);
 }
 
+#container {
+  height: 100vh; /* Set a fixed height equal to the viewport height */
+  overflow: auto; /* Enable scrolling if content exceeds the viewport */
+}
+
 #pause-message {
   display: none;
   position: absolute;
@@ -54,10 +59,17 @@ body {
 }
 
 #game-stats {
-    position: absolute;
+    {{/* position: absolute; */}}
     width: 22vw;
-    margin-top: 200px;
+    margin-top: 50px;
     color: rgba(255, 255, 255, 0.5);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Adjust top margin as needed */
 }
 
 .piece {
