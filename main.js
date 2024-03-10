@@ -496,59 +496,52 @@
       return bool;
     },
     getRowState: function (y) {
-      var c = 0;
+      var filledCount = 0;
+      var totalCount = this.boardWidth;
+    
       for (var x = 0; x < this.boardWidth; x++) {
         if (this.boardPos(x, y) === 1) {
-          c = c + 1;
+          filledCount++;
         }
       }
-      if (c === 0) {
-        return "E";
+    
+      if (filledCount === 0) {
+        return "E"; // Empty
+      } else if (filledCount === totalCount) {
+        return "F"; // Full
+      } else {
+        return "U"; // Undefined
       }
-      if (c === this.boardWidth) {
-        return "F";
-      }
-      return "U";
     },
     checkRows: function () {
       var me = this;
-      var start = this.boardHeight;
-      this.curShape.eachdo(function () {
-        var n = this[1] + me.curY;
-        console.log(n);
-        if (n < start) {
-          start = n;
-        }
-      });
-      console.log(start);
-
-      var c = 0;
-      var stopCheck = false;
-      for (var y = this.boardHeight - 1; y >= 0; y--) {
-        switch (this.getRowState(y)) {
-          case "F":
-            this.removeRow(y);
-            c++;
-            break;
-          case "E":
-            if (c === 0) {
-              stopCheck = true;
-            }
-            break;
-          case "U":
-            if (c > 0) {
-              this.shiftRow(y, c);
-            }
-            break;
-          default:
-            break;
-        }
-        if (stopCheck === true) {
-          break;
+      var c = 0; // Initialize counter for the number of rows removed
+    
+      var fullRowFound = true; // Flag to indicate if a full row was found
+    
+      while (fullRowFound) {
+        fullRowFound = false; // Reset the flag at the beginning of each iteration
+    
+        for (var y = this.boardHeight - 1; y >= 0; y--) {
+          switch (this.getRowState(y)) {
+            case "F":
+              this.removeRow(y);
+              c++;
+              fullRowFound = true; // Update the flag if a full row was found
+              break;
+            case "E":
+              if (c > 0) { // If rows were previously removed, shift down the current row
+                this.shiftRow(y, c);
+              }
+              break;
+            case "U":
+              break; // Do nothing for undefined state
+          }
         }
       }
+    
       if (c > 0) {
-        this.calcScore({ lines: c });
+        this.calcScore({ lines: c }); // Calculate score based on the number of rows removed
       }
     },
     shiftRow: function (y, amount) {
