@@ -88,7 +88,7 @@
         document.getElementById("start").style.display = "block";
         return;
       }
-      
+
       this.clearScreen();
 
       // Reset game state
@@ -118,6 +118,7 @@
     init: function () {
       isStart = true;
       this.canvas = document.getElementById("canvas");
+      this.score = 0;
       this.initBoard();
       this.initInfo();
       this.initLevelScores();
@@ -393,11 +394,14 @@
       this.isActive = 1;
     },
     togglePause: function () {
+      var pauseMessage = document.getElementById("pause-message");
       if (this.isActive === 1) {
         this.clearTimers();
         this.isActive = 0;
+        pauseMessage.style.display = "block"; // Show pause message
       } else {
         this.play();
+        pauseMessage.style.display = "none"; // Hide pause message
       }
     },
     clearTimers: function () {
@@ -658,7 +662,6 @@
   btn.addEventListener("click", function () {
     btn.style.display = "none";
     if (!isStart) {
-      this.score = 0; 
       document.getElementById("canvas").innerHTML = "";
       tetris.lives = 3; // Reset lives to 3
       tetris.init();
