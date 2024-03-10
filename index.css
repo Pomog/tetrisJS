@@ -1,10 +1,11 @@
 body {
-    overflow: hidden;
-    justify-content: center;
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(./neon-pink-ladscape_53876-91654.jpg);
+  background-color: rgba(130, 55, 143, 1);
+  overflow: hidden;
+  justify-content: center;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(./neon-pink-ladscape_53876-91654.jpg);
 }
 
 #container {
@@ -28,203 +29,153 @@ body {
 }
 
 #tetris {
-    width: 100%;
-    max-width: 1000px;
-    margin: 150px auto;
-    padding: 20px;
-    border: 1px solid rgb(153, 22, 22);
-    border-radius: 10px;
-    background-color: rgba(130, 55, 143, 1);
-    background-image: url(./The_Tetris_Company_logo.png);
-    background-repeat: no-repeat;
-    background-position-x: right;
-}
-
-#canvas {
-    width: 300px;
-    height: 600px;
-    background: rgb(17, 1, 34);
-    position: relative;
-    color: #fff;
-    z-index: 2;
-    margin-left: 100px;
-}
-
-#canvas h1 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-size: 30px;
-    padding-top: 200px;
-}
-
-#game-stats {
-    {{/* position: absolute; */}}
-    width: 22vw;
-    margin-top: 50px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px; /* Adjust top margin as needed */
-}
-
-.piece {
-    border: 1px solid white;
-    position: absolute;
-}
-
-#start {
-    margin-top: 10px;
-    padding: 20px 40px;
-    font-size: 15px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    color: green;
-}
-
-#restart {
-    margin-top: 10px;
-    padding: 10px 15px;
-    font-size: 15px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    color: green;
-}
-
-#next_shape {
-    position: relative;
-    background: rgba(0, 0, 0, 0.1);
-    border: 10px solid rgba(0, 0, 0, 0);
-    border-radius: 10px;
-    width: 100px;
-    height: 100px;
-    z-index: 4;
-}
-
-#username {
-    width: 100px;
-    overflow: hidden;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  position: center;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(130, 55, 143, 1);
+  background-image: url(./The_Tetris_Company_logo.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 #info {
-    background: rgba(0, 0, 0, 0.1);
-    color: #fff;
-    float: right;
-    width: 150px;
-    height: 580px;
-    padding: 10px;
-    border-radius: 10px;
-    margin-right: 400px;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  color: #fff;
+  float: right;
+  width: 150px;
+  height: 600px;
+  border-radius: 10px;
+  margin-left: 310px;
+  margin-right: 400px;
+}
+
+#canvas {
+  width: 300px;
+  height: 600px;
+  background: rgb(17, 1, 34);
+  position: absolute;
+  color: #fff;
+   {
+     {
+      /* z-index: 4; */
+    }
+  }
+  margin-left: 100px;
+}
+
+#canvas h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 200px;
+}
+
+#game-stats {
+   {
+     {
+      /* position: absolute; */
+    }
+  }
+  width: 22vw;
+  margin-top: 50px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Adjust top margin as needed */
+}
+
+.piece {
+  border: 1px solid white;
+  position: absolute;
+}
+
+#start {
+  margin-top: 10px;
+  padding: 20px 40px;
+  font-size: 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: green;
+}
+
+#restart {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: green;
+}
+
+#next_shape {
+  position: relative;
+  background: rgba(0, 0, 0, 0.1);
+  border: 10px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  z-index: 4;
+}
+
+#username {
+  width: 100px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 @keyframes blink {
-    to {
-        outline: green solid 1px;
-    }
+  to {
+    outline: green solid 1px;
+  }
 }
 
 .red {
-    color: white
+  color: white;
 }
 
 .square {
-    position: absolute;
-    width: 19px;
-    height: 19px;
-    border: 1px solid white;
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  border: 1px solid white;
 }
 
 .type0 {
-    background-color: rgba(80, 227, 230, 1);
-
+  background-color: rgba(80, 227, 230, 1);
 }
 
 .type1 {
-    background-color: rgba(36, 95, 223, 1);
+  background-color: rgba(36, 95, 223, 1);
 }
 
 .type2 {
-    background-color: rgba(223, 173, 36, 1);
+  background-color: rgba(223, 173, 36, 1);
 }
 
 .type3 {
-    background-color: rgba(223, 217, 36, 1);
+  background-color: rgba(223, 217, 36, 1);
 }
 
 .type4 {
-    background-color: rgba(48, 211, 56, 1);
+  background-color: rgba(48, 211, 56, 1);
 }
 
 .type5 {
-    background-color: rgba(240, 80, 195, 1);
+  background-color: rgba(240, 80, 195, 1);
 }
 
 .type6 {
-    background-color: rgba(132, 61, 198, 1);
+  background-color: rgba(132, 61, 198, 1);
 }
-
-@media (max-width: 767px) {
-    #canvas {
-        height: 300px;
-        /* Adjust height for smaller screens */
-    }
-
-    #game-stats {
-        height: 300px;
-    }
-
-    #info {
-        height: 300px;
-    }
-}
-
-/* Medium screens (tablets) */
-@media (min-width: 768px) and (max-width: 980px) {
-    #canvas {
-        height: 500px;
-        /* Adjust height for medium-sized screens */
-    }
-
-    #game-stats {
-        height: 500px;
-    }
-
-    #info {
-        height: 480px;
-    }
-}
-
-/* Large screens (desktops) */
-@media (min-width: 980px) and (max-width: 1199px) {
-    #canvas {
-        height: 600px;
-        /* Adjust height for larger screens */
-    }
-
-    #game-stats {
-        height: 600px;
-    }
-
-    #info {
-        height: 580px;
-    }
-}
-
-/* (function () {
-    var isStart = false;
-    var tetris = {
-      board: [],
-      boardDiv: null,
-      canvas: null,
-      pSize: 20,
-      canvasHeight: 600,
-      canvasWidth: 800, 
-      
-      changing height and width  in order to fit correctly tetris in borders, this is examle for to follow the code that is on web */
