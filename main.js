@@ -680,6 +680,7 @@
     tetris.restartGame();
   });
 })();
+
 if (!Array.prototype.eachdo) {
   Array.prototype.eachdo = function (fn) {
     for (var i = 0; i < this.length; i++) {
